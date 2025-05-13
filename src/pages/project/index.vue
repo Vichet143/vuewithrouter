@@ -1,5 +1,7 @@
 <template>
-    <Product></Product>
+    <section>
+         <Product></Product>
+    </section>
 </template>
 
 <script>

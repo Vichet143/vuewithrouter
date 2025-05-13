@@ -1,6 +1,8 @@
 <template>
-  <Sectionbanner></Sectionbanner>
-  <Priciping></Priciping>
+  <section>
+    <Sectionbanner></Sectionbanner>
+    <Priciping></Priciping>
+  </section>
 </template>
 
 <script>

@@ -51,12 +51,13 @@
               </li>
 
               <li>
-                <a
+                <!-- <a
                   class="text-gray-500 transition hover:text-gray-500/75"
                   href="#"
                 >
-                  Services
-                </a>
+                  
+                </a> -->
+                <router-link to="/service" class="text-gray-500 transition hover:text-gray-500/75">Services</router-link>
               </li>
 
               <li>
