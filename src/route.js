@@ -11,6 +11,8 @@ import Service from './pages/service/Service.vue'
 import NotFound from './components/NotFound.vue'
 
 
+
+
 const routes = [
     { path: '/', component: Home },
     { path: '/blog', component: Blog ,children:[

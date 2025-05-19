@@ -22,52 +22,13 @@
         <div class="hidden md:block">
           <nav aria-label="Global">
             <ul class="flex items-center gap-6 text-sm">
-              <li>
-                <a
+              <li v-for="(item,index) in nav" :key="index">
+                <router-link
                   class="text-gray-500 transition hover:text-gray-500/75"
-                  href="#"
+                  :to="item.path"
+                  >{{ $t(item.name) }}
+                  </router-link
                 >
-                  About
-                </a>
-              </li>
-
-              <li>
-                <a
-                  class="text-gray-500 transition hover:text-gray-500/75"
-                  href="#"
-                >
-                  Careers
-                </a>
-              </li>
-
-              <li>
-                <!-- <a
-                  class="text-gray-500 transition hover:text-gray-500/75"
-                  href="#"
-                >
-                  History
-                </a> -->
-                <router-link  class="text-gray-500 transition hover:text-gray-500/75" to="/project">Project</router-link>
-              </li>
-
-              <li>
-                <!-- <a
-                  class="text-gray-500 transition hover:text-gray-500/75"
-                  href="#"
-                >
-                  
-                </a> -->
-                <router-link to="/service" class="text-gray-500 transition hover:text-gray-500/75">Services</router-link>
-              </li>
-
-              <li>
-                <!-- <a
-                  class="text-gray-500 transition hover:text-gray-500/75"
-                  href="#"
-                >
-                  Blog
-                </a> -->
-                <router-link class="text-gray-500 transition hover:text-gray-500/75" to="/blog">Blog</router-link>
               </li>
             </ul>
           </nav>
@@ -79,41 +40,71 @@
               class="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow-sm"
               href="#"
             >
-              Login
+              {{$t('login')}}
             </a>
 
             <div class="hidden sm:flex">
-              <a
-                class="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600"
-                href="#"
+              <button
+                class="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600" style="cursor: pointer;"
+                aria-haspopup="dialog"
+                aria-expanded="false"
+                aria-controls="register-modal"
+                data-hs-overlay="#register-modal"
               >
-                Register
-              </a>
+                {{$t('register')}}
+              </button>
             </div>
-          </div>
-
-          <div class="block md:hidden">
-            <button
-              class="rounded-sm bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75"
+           <a
+              class="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow-sm"
+              href="#"
+              @click="handleswithlanguge"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="size-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
-            </button>
+              Swith
+            </a>
           </div>
         </div>
       </div>
     </div>
   </header>
 </template>
+
+<script>
+  export default{
+    data(){
+      return{
+        nav:[
+          {
+            name:"about",
+            path:"/about"
+          },
+          {
+            name:"career",
+            path:"/career"
+          },
+          {
+            name:"project",
+            path:"/project"
+          },
+          {
+            name:"service",
+            path:"/service"
+          },
+          {
+            name:"blog",
+            path:"/blog"
+          },
+        ]
+      }
+    },
+    methods:{
+      handleswithlanguge(){
+        const locale = this.$i18n.locale
+        if (locale == 'en') {
+          this.$i18n.locale = 'km'
+        } else {
+          this.$i18n.locale = 'en'
+        }
+      }
+    }
+  }
+</script>
